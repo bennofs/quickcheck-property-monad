@@ -12,6 +12,7 @@ copyright:     Copyright (C) 2013 Benno Fünfstück
 synopsis:      quickcheck-property-monad
 description:   quickcheck-property-monad
 build-type:    Custom
+category:      Testing
 
 extra-source-files:
   .ghci
