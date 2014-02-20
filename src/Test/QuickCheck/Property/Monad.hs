@@ -1,5 +1,5 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
--- | Tutorial: http://github.com/bennofs/quickcheck-property-monad/tree/master/README.md
+-- | Tutorial: <http://github.com/bennofs/quickcheck-property-monad/tree/master/README.md>
 module Test.QuickCheck.Property.Monad
   ( PropM()
   , assert
