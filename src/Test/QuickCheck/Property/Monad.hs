@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 -- | Tutorial: <http://github.com/bennofs/quickcheck-property-monad/tree/master/README.md>
 --
@@ -27,6 +28,11 @@ import Test.QuickCheck.Property
 >>> let transformEmpty "" = "-"; transformEmpty x = x
 >>> let quickCheck = quickCheckWithResult (stdArgs { chatty = False, replay = Just (mkQCGen 42, 13) }) >=> putStr . unlines . map transformEmpty . lines . output
 -}
+
+#if !MIN_VERSION_QuickCheck(2,7,0)
+counterexample :: Testable prop => String -> prop -> Property
+counterexample = printTestCase
+#endif
 
 -- | PropM is a monad for writing properties that depend on random
 -- data. This is especially useful if you have many invariants for
