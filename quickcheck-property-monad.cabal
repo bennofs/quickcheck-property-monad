@@ -9,9 +9,15 @@ maintainer: Benno Fünfstück <benno.fuenfstueck@gmail.com>
 stability: experimental
 homepage: http://github.com/bennofs/quickcheck-property-monad/
 bug-reports: http://github.com/bennofs/quickcheck-property-monad/issues
-synopsis: quickcheck-property-monad
+synopsis: A monad for generating QuickCheck properties without Arbitrary instances.
 description:
-    quickcheck-property-monad
+    When your data has many invariants, it's often difficult to write Arbitrary 
+    instances for QuickCheck. This library attempts to solve that
+    problem by providing a nice interface to write QuickCheck tests without using 
+    Arbitrary instances. It aims to be somewhere in the middle between
+    HUnit and QuickCheck: Use the random test case generation of QuickCheck, but write 
+    HUnit like assertions.
+
 category: Testing
 author: Benno Fünfstück
 extra-source-files:
