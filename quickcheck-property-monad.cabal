@@ -47,10 +47,6 @@ library
     ghc-options: -Wall
 
 test-suite doctests
-    
-    if impl(ghc <7.6.1)
-        ghc-options: -Werror
-    
     if flag(tests)
         build-depends:
             QuickCheck >=2.7 && <2.9
