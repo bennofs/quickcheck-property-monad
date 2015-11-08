@@ -71,7 +71,7 @@ prop_satisfies_invariant = sized $ \s -> return . property $ go newModel s
   where go :: Model -> Int -> PropM Bool
         go _     0    = return True
         go model size = do
-          (description, operation) <- generate randomOperation
+          (description, operation) <- gen randomOperation
           logMessageLn $ "Operation: " ++ description
           let model' = operation model
           logMessageLn $ "Model is now: " ++ show model'
