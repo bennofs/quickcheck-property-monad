@@ -66,12 +66,12 @@ randomOperation = oneof
 So far, all functions we've used are provided by `QuickCheck` itself. Let's now write the test property:
 
 ```haskell
-prop_satisfies_invariant :: Property
-prop_satisfies_invariant = sized $ \s -> property $ go newModel s
+prop_satisfies_invariant :: Gen Property
+prop_satisfies_invariant = sized $ \s -> return . property $ go newModel s
   where go :: Model -> Int -> PropM Bool
         go _     0    = return True
         go model size = do
-          (description, operation) <- generate randomOperation
+          (description, operation) <- gen randomOperation
           logMessageLn $ "Operation: " ++ description
           let model' = operation model
           logMessageLn $ "Model is now: " ++ show model'
